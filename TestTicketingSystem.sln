@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTicketingSystem.Module", "TestTicketingSystem.Module\TestTicketingSystem.Module.csproj", "{EA18C701-A4E9-4E43-8886-4A750A59FA75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTicketingSystem.Module.Web", "TestTicketingSystem.Module.Web\TestTicketingSystem.Module.Web.csproj", "{53244139-38E1-4E7A-B0D3-45EFFC313BB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTicketingSystem.Web", "TestTicketingSystem.Web\TestTicketingSystem.Web.csproj", "{F76BCAD1-E205-4265-8B09-01264F4A36AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTicketingSystem.Module.Win", "TestTicketingSystem.Module.Win\TestTicketingSystem.Module.Win.csproj", "{16C0EEF7-E27F-4784-96A1-4B451D050000}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTicketingSystem.Win", "TestTicketingSystem.Win\TestTicketingSystem.Win.csproj", "{9349DC16-4D0E-40DE-A4CC-D04516B2C977}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		EasyTest|Any CPU = EasyTest|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA18C701-A4E9-4E43-8886-4A750A59FA75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA18C701-A4E9-4E43-8886-4A750A59FA75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA18C701-A4E9-4E43-8886-4A750A59FA75}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{EA18C701-A4E9-4E43-8886-4A750A59FA75}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{EA18C701-A4E9-4E43-8886-4A750A59FA75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA18C701-A4E9-4E43-8886-4A750A59FA75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53244139-38E1-4E7A-B0D3-45EFFC313BB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53244139-38E1-4E7A-B0D3-45EFFC313BB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53244139-38E1-4E7A-B0D3-45EFFC313BB0}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{53244139-38E1-4E7A-B0D3-45EFFC313BB0}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{53244139-38E1-4E7A-B0D3-45EFFC313BB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53244139-38E1-4E7A-B0D3-45EFFC313BB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F76BCAD1-E205-4265-8B09-01264F4A36AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F76BCAD1-E205-4265-8B09-01264F4A36AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F76BCAD1-E205-4265-8B09-01264F4A36AA}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{F76BCAD1-E205-4265-8B09-01264F4A36AA}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{F76BCAD1-E205-4265-8B09-01264F4A36AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F76BCAD1-E205-4265-8B09-01264F4A36AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16C0EEF7-E27F-4784-96A1-4B451D050000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16C0EEF7-E27F-4784-96A1-4B451D050000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16C0EEF7-E27F-4784-96A1-4B451D050000}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{16C0EEF7-E27F-4784-96A1-4B451D050000}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{16C0EEF7-E27F-4784-96A1-4B451D050000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16C0EEF7-E27F-4784-96A1-4B451D050000}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9349DC16-4D0E-40DE-A4CC-D04516B2C977}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9349DC16-4D0E-40DE-A4CC-D04516B2C977}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9349DC16-4D0E-40DE-A4CC-D04516B2C977}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{9349DC16-4D0E-40DE-A4CC-D04516B2C977}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{9349DC16-4D0E-40DE-A4CC-D04516B2C977}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9349DC16-4D0E-40DE-A4CC-D04516B2C977}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92656907-49ED-46C8-BAF2-FF4CAED0809E}
+	EndGlobalSection
+EndGlobal
