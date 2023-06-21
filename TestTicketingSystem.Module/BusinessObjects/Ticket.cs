@@ -22,49 +22,86 @@ namespace TestTicketingSystem.Module.BusinessObjects {
     public class Ticket : XPObject {
         public Ticket(Session session)
             : base(session) {
+            if (Session.IsNewObject(this)) {
+                CreationDate = DateTime.Now;
+                CreatedBy = SecuritySystem.CurrentUserName;
+            }    
         }
         public override void AfterConstruction() {
             base.AfterConstruction();
         }
-      
-       
-        private string title;
-        public string Title {
-            get => title;
-            set => SetPropertyValue(nameof(Title), ref title, value);
+
+
+        private string fSubject;
+        public string Subject
+        {
+            get => fSubject;
+            set => SetPropertyValue(nameof(Subject), ref fSubject, value);
         }
 
-        private string description;
+        private string fDescription;
+        [Size(500)]
         public string Description {
-            get => description;
-            set => SetPropertyValue(nameof(Description), ref description, value);
+            get => fDescription;
+            set => SetPropertyValue(nameof(Description), ref fDescription, value);
         }
 
-        private ApplicationUser createdBy;
-        [Association("User-Tickets")]
-        public ApplicationUser CreatedBy {
-            get { return createdBy; }
-            set { SetPropertyValue(nameof(CreatedBy), value); }
+        private DateTime fCreationDate;
+        public DateTime CreationDate {
+            get { return fCreationDate; }
+            set { SetPropertyValue(nameof(CreationDate), ref fCreationDate, value); }
+        }
+        private DateTime fAssignedDate;
+        public DateTime AssignedDate
+        {
+            get { return fAssignedDate; }
+            set { SetPropertyValue(nameof(AssignedDate), ref fAssignedDate, value); }
+        }
+        private DateTime fClosedDate;
+        public DateTime ClosedDate
+        {
+            get { return fClosedDate; }
+            set { SetPropertyValue(nameof(ClosedDate), ref fClosedDate, value); }
+        }
+
+        private string fCreatedBy;
+        public string CreatedBy {
+            get { return fCreatedBy; }
+            set { SetPropertyValue(nameof(CreatedBy), ref fCreatedBy, value); }
+        }
+
+        private ApplicationUser assignedTo;
+        [Association("SupportStaff-Tickets")]
+        public ApplicationUser AssignedTo {
+            get { return assignedTo; }
+            set { SetPropertyValue(nameof(AssignedTo),ref assignedTo, value); }
         }
 
         [Association("Ticket-Comments")]
         [DevExpress.Xpo.Aggregated]
         public XPCollection<Comment> Comments => GetCollection<Comment>(nameof(Comments));
 
- 
-     
-        private TicketPriority priority;
+
+
+        private TicketPriority fPriority;
         public TicketPriority Priority {
-            get { return priority; }
-            set { SetPropertyValue(nameof(Priority), ref priority, value); }
+            get { return fPriority; }
+            set { SetPropertyValue(nameof(Priority), ref fPriority, value); }
         }
 
-        private TicketStatus status;
+        private TicketStatus fStatus;
         public TicketStatus Status {
-            get { return status; }
-            set { SetPropertyValue(nameof(Status), ref status, value); }
-            
+            get { return fStatus; }
+            set { SetPropertyValue(nameof(Status), ref fStatus, value); }
+
         }
-      
+        protected override void OnSaving() {
+            base.OnSaving();
+
+            if (Session.IsNewObject(this)) {
+                CreationDate = DateTime.Now;
+                CreatedBy = SecuritySystem.CurrentUserName;
+            }
+        }
     }
 }

@@ -2,10 +2,10 @@
 using DevExpress.Xpo;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace TestTicketingSystem.Module.BusinessObjects
 {
 
@@ -22,19 +22,16 @@ namespace TestTicketingSystem.Module.BusinessObjects
             base.AfterConstruction();
         }
       
-        private string name;
+        private string fName;
         public string Name {
-            get => name;
-            set => SetPropertyValue(nameof(Name), ref name, value);
+            get => fName;
+            set => SetPropertyValue(nameof(Name), ref fName, value);
         }
         
 
         [Association("Department-Users")]
         public XPCollection<ApplicationUser> Users => GetCollection<ApplicationUser>(nameof(Users));
 
-        
-        //[Association("Department-SupportStaff")]
-        //public XPCollection<SupportStaff> SupportStaff => GetCollection<SupportStaff>(nameof(SupportStaff));
 
     }
 }

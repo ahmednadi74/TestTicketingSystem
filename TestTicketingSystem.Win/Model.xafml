@@ -1,7 +1,60 @@
-﻿<Application Logo="ExpressAppLogo">
-	<Options UIType="TabbedMDI" FormStyle="Ribbon" />
-	<NavigationItems NavigationStyle="Accordion" ShowImages="False" DefaultChildItemsDisplayStyle="List"/>
-	<Options ShowTabImage="False">
-		<LayoutManagerOptions EnableLayoutGroupImages="False" />
-	</Options>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Logo="ExpressAppLogo">
+  <BOModel>
+    <Class Name="TestTicketingSystem.Module.BusinessObjects.Ticket">
+      <AppearanceRules>
+        <AppearanceRule Id="ClosedTicketColour" TargetItems="*" Criteria="[Status] = ##Enum#TestTicketingSystem.Module.BusinessObjects.TicketStatus,Closed#" FontStyle="Strikeout" IsNewNode="True" />
+        <AppearanceRule Id="InProgressTicketColour" TargetItems="*" Criteria="[Status] = ##Enum#TestTicketingSystem.Module.BusinessObjects.TicketStatus,InProgress#" BackColor="0, 192, 0" IsNewNode="True" />
+        <AppearanceRule Id="OpenTicketColour" Criteria="[Status] = ##Enum#TestTicketingSystem.Module.BusinessObjects.TicketStatus,Open#" BackColor="255, 192, 192" TargetItems="*" IsNewNode="True" />
+        <AppearanceRule Id="ResolvedTicketColour" TargetItems="*" Criteria="[Status] = ##Enum#TestTicketingSystem.Module.BusinessObjects.TicketStatus,Resolved#" BackColor="Green" IsNewNode="True" />
+      </AppearanceRules>
+    </Class>
+  </BOModel>
+  <NavigationItems NavigationStyle="Accordion" ShowImages="False" DefaultChildItemsDisplayStyle="List">
+    <Items>
+      <Item Id="Default" Caption="Admin">
+        <Items>
+          <Item Id="Ticket_ListView" Removed="True" />
+        </Items>
+      </Item>
+      <Item Id="User" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="Ticket_ListView" ViewId="Ticket_ListView" ObjectKey="" IsNewNode="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Options UIType="TabbedMDI" FormStyle="Ribbon" ShowTabImage="False">
+    <LayoutManagerOptions EnableLayoutGroupImages="False" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="21.2.6.0" IsNewNode="True" />
+    <SchemaModule Name="SystemWindowsFormsModule" Version="21.2.6.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <DetailView Id="Comment_DetailView">
+      <Items>
+        <PropertyEditor Id="CreatedBy" AllowEdit="False" />
+        <PropertyEditor Id="CreationDate" AllowEdit="False" />
+      </Items>
+    </DetailView>
+    <ListView Id="Comment_ListView">
+      <Columns>
+        <ColumnInfo Id="CreationDate" AllowEdit="False" />
+        <ColumnInfo Id="CreatedBy" AllowEdit="False" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Ticket_DetailView">
+      <Items>
+        <PropertyEditor Id="CreatedBy" AllowEdit="False" />
+        <PropertyEditor Id="CreationDate" AllowEdit="False" />
+      </Items>
+    </DetailView>
+    <ListView Id="Ticket_ListView">
+      <Columns>
+        <ColumnInfo Id="CreatedBy" AllowEdit="False" />
+        <ColumnInfo Id="AssignedTo" AllowClear="False" />
+      </Columns>
+    </ListView>
+  </Views>
 </Application>

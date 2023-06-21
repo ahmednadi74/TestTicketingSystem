@@ -1,4 +1,5 @@
-﻿using DevExpress.ExpressApp.MiddleTier;
+﻿using DevExpress.ExpressApp;
+using DevExpress.ExpressApp.MiddleTier;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 using System;
@@ -7,54 +8,56 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestTicketingSystem.Module.BusinessObjects
-{
+namespace TestTicketingSystem.Module.BusinessObjects {
     [DefaultClassOptions]
-    
-    public class Comment : XPObject
-    {
+
+    public class Comment : XPObject {
         public Comment(Session session)
-            : base(session)
-        {
+            : base(session) {
         }
-        public override void AfterConstruction()
-        {
+        public override void AfterConstruction() {
             base.AfterConstruction();
-        
-        }
-        
-        private string content;
-        [Size(500)]
-        public string Content {
-             get =>  content; 
-             set => SetPropertyValue(nameof(Content), ref content, value); 
-        }
-       
-        private DateTime creationDate;
-        public DateTime CreationDate {
-            get { return creationDate; }
-            set { SetPropertyValue(nameof(CreationDate), ref creationDate, value); }
+            if (Session.IsNewObject(this)) {
+                fCreationDate = DateTime.Now;
+                fCreatedBy = SecuritySystem.CurrentUserName;
+            }
         }
 
-        private ApplicationUser createdBy;
-        public ApplicationUser CreatedBy {
-            get { return createdBy; }
+        private string fDescription;
+        [Size(500)]
+        public string Description
+        {
+            get => fDescription;
+            set => SetPropertyValue(nameof(Description), ref fDescription, value);
+        }
+
+        private DateTime fCreationDate;
+        public DateTime CreationDate {
+            get { return fCreationDate; }
+            set { SetPropertyValue(nameof(CreationDate), ref fCreationDate, value); }
+        }
+
+        private string fCreatedBy;
+        public string CreatedBy {
+            get { return fCreatedBy; }
             set { SetPropertyValue(nameof(CreatedBy), value); }
         }
 
 
-        private ApplicationUser assignTo;
-        public ApplicationUser AssignTo {
-            get { return assignTo; }
-            set { SetPropertyValue(nameof(AssignTo), value); }
-        }
-
-        private Ticket ticket;
+        private Ticket fTicket;
         [Association("Ticket-Comments")]
         public Ticket Ticket {
-            get { return ticket; }
+            get { return fTicket; }
             set { SetPropertyValue(nameof(Ticket), value); }
         }
-       
+
+        protected override void OnSaving() {
+            base.OnSaving();
+
+            if (Session.IsNewObject(this)) {
+                fCreationDate = DateTime.Now;
+                fCreatedBy = SecuritySystem.CurrentUserName;
+            }
+        }
     }
 }

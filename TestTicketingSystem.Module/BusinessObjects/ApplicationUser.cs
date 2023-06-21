@@ -35,32 +35,39 @@ namespace TestTicketingSystem.Module.BusinessObjects {
             return result;
         }
 
-        private string firstName;
+        private string fFirstName;
         public string FirstName {
-            get => firstName;
-            set => SetPropertyValue(nameof(FirstName), ref firstName, value);
+            get => fFirstName;
+            set => SetPropertyValue(nameof(FirstName), ref fFirstName, value);
         }
 
-        private string lastName;
+        private string fLastName;
         public string LastName {
-            get => lastName;
-            set => SetPropertyValue(nameof(LastName), ref lastName, value);
+            get => fLastName;
+            set => SetPropertyValue(nameof(LastName), ref fLastName, value);
         }
 
-        private string email;
+        private string fEmail;
         public string Email {
-            get => email;
-            set => SetPropertyValue(nameof(Email), ref email, value);
+            get => fEmail;
+            set => SetPropertyValue(nameof(Email), ref fEmail, value);
         }
 
-        [Association("User-Tickets")]
+        [Association("SupportStaff-Tickets")]
         public XPCollection<Ticket> Tickets => GetCollection<Ticket>(nameof(Tickets));
 
-        private Department department;
+        private Department fDepartment;
         [Association("Department-Users")]
         public Department Department{
-            get { return department; }
+            get { return fDepartment; }
             set { SetPropertyValue(nameof(Department), value); }
+        }
+        private Company fCompany;
+        [Association("Company-Users")]
+        public Company Company
+        {
+            get { return fCompany; }
+            set { SetPropertyValue(nameof(Company), value); }
         }
 
     }
