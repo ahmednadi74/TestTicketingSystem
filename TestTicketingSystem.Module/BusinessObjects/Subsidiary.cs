@@ -16,9 +16,9 @@ using System.Text;
 namespace TestTicketingSystem.Module.BusinessObjects
 {
     [DefaultClassOptions]
-     public class Company : XPObject
+     public class Subsidiary : XPObject
     { 
-        public Company(Session session)
+        public Subsidiary(Session session)
             : base(session)
         {
         }
@@ -32,23 +32,8 @@ namespace TestTicketingSystem.Module.BusinessObjects
             get => fName;
             set => SetPropertyValue(nameof(Name), ref fName, value);
         }
-        private string fAddress;
-        [Size(500)]
-
-        public string Address
-        {
-            get => fAddress;
-            set => SetPropertyValue(nameof(Address), ref fAddress, value);
-        }
-        private string fContactInfo;
-        [Size(500)]
-
-        public string ContactInfo
-        {
-            get => fContactInfo;
-            set => SetPropertyValue(nameof(ContactInfo), ref fContactInfo, value);
-        }
-        [Association("Company-Users")]
+        
+        [Association("Subsidiary-Users")]
         public XPCollection<ApplicationUser> Users => GetCollection<ApplicationUser>(nameof(Users));
 
 

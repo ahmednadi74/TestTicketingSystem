@@ -40,7 +40,7 @@ namespace TestTicketingSystem.Module.BusinessObjects {
         private string fCreatedBy;
         public string CreatedBy {
             get { return fCreatedBy; }
-            set { SetPropertyValue(nameof(CreatedBy), value); }
+            set { SetPropertyValue(nameof(CreatedBy),ref fCreatedBy, value); }
         }
 
 
@@ -48,7 +48,7 @@ namespace TestTicketingSystem.Module.BusinessObjects {
         [Association("Ticket-Comments")]
         public Ticket Ticket {
             get { return fTicket; }
-            set { SetPropertyValue(nameof(Ticket), value); }
+            set { SetPropertyValue(nameof(Ticket),ref fTicket, value); }
         }
 
         protected override void OnSaving() {

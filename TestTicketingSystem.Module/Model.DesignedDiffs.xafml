@@ -1,12 +1,37 @@
-﻿<?xml version="1.0" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="TestTicketingSystem">
   <BOModel>
     <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
   </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="Ticket_ListView" Removed="True" />
+        </Items>
+      </Item>
+      <Item Id="User" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="Ticket_ListView" ViewId="Ticket_ListView" ObjectKey="" IsNewNode="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="21.2.6.0" IsNewNode="True" />
+  </SchemaModules>
   <Views>
     <ListView Id="ApplicationUser_ListView" Caption="Users" />
+    <DetailView Id="Ticket_DetailView">
+      <Items>
+        <PropertyEditor Id="AssignedTo" AllowEdit="False" />
+        <PropertyEditor Id="ClosedDate" AllowEdit="False" />
+        <PropertyEditor Id="CreatedBy" AllowEdit="False" />
+        <PropertyEditor Id="CreationDate" AllowEdit="False" />
+      </Items>
+    </DetailView>
   </Views>
 </Application>

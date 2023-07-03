@@ -14,9 +14,6 @@ namespace TestTicketingSystem.Module.BusinessObjects {
     public class ApplicationUser : PermissionPolicyUser, IObjectSpaceLink, ISecurityUserWithLoginInfo {
         public ApplicationUser(Session session) : base(session) { }
 
-
-
-
         [Browsable(false)]
         [Aggregated, Association("User-LoginInfo")]
         public XPCollection<ApplicationUserLoginInfo> LoginInfo {
@@ -52,6 +49,13 @@ namespace TestTicketingSystem.Module.BusinessObjects {
             get => fEmail;
             set => SetPropertyValue(nameof(Email), ref fEmail, value);
         }
+       
+        private string fMobile;
+        public string Mobile {
+            get => fMobile;
+            set => SetPropertyValue(nameof(Mobile), ref fMobile, value);
+        }
+
 
         [Association("SupportStaff-Tickets")]
         public XPCollection<Ticket> Tickets => GetCollection<Ticket>(nameof(Tickets));
@@ -60,14 +64,13 @@ namespace TestTicketingSystem.Module.BusinessObjects {
         [Association("Department-Users")]
         public Department Department{
             get { return fDepartment; }
-            set { SetPropertyValue(nameof(Department), value); }
+            set { SetPropertyValue(nameof(Department),ref fDepartment, value); }
         }
-        private Company fCompany;
-        [Association("Company-Users")]
-        public Company Company
-        {
-            get { return fCompany; }
-            set { SetPropertyValue(nameof(Company), value); }
+        private Subsidiary fSubsidiary;
+        [Association("Subsidiary-Users")]
+        public Subsidiary Subsidiary {
+            get { return fSubsidiary; }
+            set { SetPropertyValue(nameof(Subsidiary),ref fSubsidiary, value); }
         }
 
     }

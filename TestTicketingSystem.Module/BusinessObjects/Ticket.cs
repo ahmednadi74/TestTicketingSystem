@@ -51,11 +51,12 @@ namespace TestTicketingSystem.Module.BusinessObjects {
             get { return fCreationDate; }
             set { SetPropertyValue(nameof(CreationDate), ref fCreationDate, value); }
         }
-        private DateTime fAssignedDate;
-        public DateTime AssignedDate
+        private DateTime fAssignDate;
+        [ModelDefault("AllowEdit", "False")]
+        public DateTime AssignDate
         {
-            get { return fAssignedDate; }
-            set { SetPropertyValue(nameof(AssignedDate), ref fAssignedDate, value); }
+            get { return fAssignDate; }
+            set { SetPropertyValue(nameof(AssignDate), ref fAssignDate, value); }
         }
         private DateTime fClosedDate;
         public DateTime ClosedDate
@@ -103,5 +104,7 @@ namespace TestTicketingSystem.Module.BusinessObjects {
                 CreatedBy = SecuritySystem.CurrentUserName;
             }
         }
+
+       
     }
 }

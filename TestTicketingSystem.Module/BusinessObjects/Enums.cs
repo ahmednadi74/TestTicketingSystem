@@ -5,17 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TestTicketingSystem.Module.BusinessObjects {
-    
-        public enum TicketStatus {
-            Open,
-            InProgress,
-            Resolved,
-            Closed
-        }
 
-        public enum TicketPriority {
-            Low,
-            Medium,
-            High,
-        }
+    public enum TicketStatus {
+        New = 0,
+        InProgress = 1,
+        Resolved = 99,
     }
+
+    public enum TicketPriority {
+        Low,
+        Medium,
+        High,
+    }
+}

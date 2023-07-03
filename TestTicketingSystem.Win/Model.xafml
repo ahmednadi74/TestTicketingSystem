@@ -1,15 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Logo="ExpressAppLogo">
-  <BOModel>
-    <Class Name="TestTicketingSystem.Module.BusinessObjects.Ticket">
-      <AppearanceRules>
-        <AppearanceRule Id="ClosedTicketColour" TargetItems="*" Criteria="[Status] = ##Enum#TestTicketingSystem.Module.BusinessObjects.TicketStatus,Closed#" FontStyle="Strikeout" IsNewNode="True" />
-        <AppearanceRule Id="InProgressTicketColour" TargetItems="*" Criteria="[Status] = ##Enum#TestTicketingSystem.Module.BusinessObjects.TicketStatus,InProgress#" BackColor="0, 192, 0" IsNewNode="True" />
-        <AppearanceRule Id="OpenTicketColour" Criteria="[Status] = ##Enum#TestTicketingSystem.Module.BusinessObjects.TicketStatus,Open#" BackColor="255, 192, 192" TargetItems="*" IsNewNode="True" />
-        <AppearanceRule Id="ResolvedTicketColour" TargetItems="*" Criteria="[Status] = ##Enum#TestTicketingSystem.Module.BusinessObjects.TicketStatus,Resolved#" BackColor="Green" IsNewNode="True" />
-      </AppearanceRules>
-    </Class>
-  </BOModel>
   <NavigationItems NavigationStyle="Accordion" ShowImages="False" DefaultChildItemsDisplayStyle="List">
     <Items>
       <Item Id="Default" Caption="Admin">

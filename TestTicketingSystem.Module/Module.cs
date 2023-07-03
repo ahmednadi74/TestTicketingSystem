@@ -17,6 +17,7 @@ using DevExpress.ExpressApp.Model.DomainLogics;
 using DevExpress.ExpressApp.Model.NodeGenerators;
 using DevExpress.Xpo;
 using DevExpress.ExpressApp.Xpo;
+using TestTicketingSystem.Module.Controllers;
 
 namespace TestTicketingSystem.Module {
     // For more typical usage scenarios, be sure to check out https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.ModuleBase.
@@ -30,6 +31,7 @@ namespace TestTicketingSystem.Module {
         }
         public override void Setup(XafApplication application) {
             base.Setup(application);
+            // Register the TicketFilterController
             // Manage various aspects of the application UI and behavior at the module level.
         }
         public override void CustomizeTypesInfo(ITypesInfo typesInfo) {
