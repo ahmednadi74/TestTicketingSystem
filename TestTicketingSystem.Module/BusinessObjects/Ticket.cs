@@ -22,13 +22,14 @@ namespace TestTicketingSystem.Module.BusinessObjects {
     public class Ticket : XPObject {
         public Ticket(Session session)
             : base(session) {
-            if (Session.IsNewObject(this)) {
-                CreationDate = DateTime.Now;
-                CreatedBy = SecuritySystem.CurrentUserName;
-            }    
+            CreationDate = DateTime.Now;
+
+           // CreatedBy = (ApplicationUser)SecuritySystem.CurrentUser;
         }
+       
         public override void AfterConstruction() {
             base.AfterConstruction();
+           
         }
 
 
@@ -65,8 +66,10 @@ namespace TestTicketingSystem.Module.BusinessObjects {
             set { SetPropertyValue(nameof(ClosedDate), ref fClosedDate, value); }
         }
 
-        private string fCreatedBy;
-        public string CreatedBy {
+        private ApplicationUser fCreatedBy;
+        [Association("User-Tickets")]
+
+        public ApplicationUser CreatedBy {
             get { return fCreatedBy; }
             set { SetPropertyValue(nameof(CreatedBy), ref fCreatedBy, value); }
         }
@@ -96,13 +99,25 @@ namespace TestTicketingSystem.Module.BusinessObjects {
             set { SetPropertyValue(nameof(Status), ref fStatus, value); }
 
         }
+        public void DefineOwnerShip(object UserId) {
+
+            AssignedTo = Session.GetObjectByKey<ApplicationUser>(UserId);
+            Status = TicketStatus.InProgress;
+            AssignDate = DateTime.Now;
+        }
+
+        public void CloseTicket() {
+
+            ClosedDate = DateTime.Now;
+            Status = TicketStatus.Resolved;
+        }
         protected override void OnSaving() {
             base.OnSaving();
-
-            if (Session.IsNewObject(this)) {
-                CreationDate = DateTime.Now;
-                CreatedBy = SecuritySystem.CurrentUserName;
-            }
+            //CreatedBy = (ApplicationUser)SecuritySystem.CurrentUser;
+            //if (Session.IsNewObject(this)) {
+            //    CreationDate = DateTime.Now;
+            //    CreatedBy = SecuritySystem.CurrentUserName;
+            //}
         }
 
        

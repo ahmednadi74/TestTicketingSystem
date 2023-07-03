@@ -29,8 +29,8 @@
       <Items>
         <PropertyEditor Id="AssignedTo" AllowEdit="False" />
         <PropertyEditor Id="ClosedDate" AllowEdit="False" />
-        <PropertyEditor Id="CreatedBy" AllowEdit="False" />
-        <PropertyEditor Id="CreationDate" AllowEdit="False" />
+        <PropertyEditor Id="CreatedBy" AllowEdit="True" DataSourceCriteria="" />
+        <PropertyEditor Id="CreationDate" AllowEdit="True" />
       </Items>
     </DetailView>
   </Views>

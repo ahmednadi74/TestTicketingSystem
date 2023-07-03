@@ -33,6 +33,7 @@
             this.DefineOwnership.AcceptButtonCaption = null;
             this.DefineOwnership.CancelButtonCaption = null;
             this.DefineOwnership.Caption = "Define Ownership";
+            this.DefineOwnership.Category = "Edit";
             this.DefineOwnership.ConfirmationMessage = null;
             this.DefineOwnership.Id = "DefineOwnership";
             this.DefineOwnership.ToolTip = null;
@@ -42,6 +43,7 @@
             // TakeOwnership
             // 
             this.TakeOwnership.Caption = "Take Ownership";
+            this.TakeOwnership.Category = "Edit";
             this.TakeOwnership.ConfirmationMessage = null;
             this.TakeOwnership.Id = "TakeOwnership";
             this.TakeOwnership.ToolTip = null;
@@ -50,7 +52,7 @@
             // CloseTicket
             // 
             this.CloseTicket.Caption = "Close Ticket";
-            this.CloseTicket.Category = "Save";
+            this.CloseTicket.Category = "Edit";
             this.CloseTicket.ConfirmationMessage = null;
             this.CloseTicket.Id = "CloseTicket";
             this.CloseTicket.ToolTip = null;

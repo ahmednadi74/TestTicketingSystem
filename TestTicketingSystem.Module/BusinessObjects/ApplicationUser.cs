@@ -56,9 +56,11 @@ namespace TestTicketingSystem.Module.BusinessObjects {
             set => SetPropertyValue(nameof(Mobile), ref fMobile, value);
         }
 
+        [Association("User-Tickets")]
+        public XPCollection<Ticket> UserTickets => GetCollection<Ticket>(nameof(UserTickets));
 
         [Association("SupportStaff-Tickets")]
-        public XPCollection<Ticket> Tickets => GetCollection<Ticket>(nameof(Tickets));
+        public XPCollection<Ticket> SupportStaffTickets => GetCollection<Ticket>(nameof(SupportStaffTickets));
 
         private Department fDepartment;
         [Association("Department-Users")]
